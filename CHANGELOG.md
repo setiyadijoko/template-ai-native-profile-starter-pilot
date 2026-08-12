@@ -1,0 +1,177 @@
+# Changelog
+
+All notable changes to this project are documented in this file.
+
+The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
+and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+
+## [Unreleased]
+
+### Added
+- Added the advisory `Profile policy / Required controls` aggregate, its
+  execution-plan resolver, required-control evaluator, and bounded reusable
+  workflow boundaries. Existing direct baseline workflow execution and branch
+  protection remain unchanged while hosted activation evidence is collected;
+  enforcement remains NO-GO.
+- Required explicit Starter, Standard, or Enterprise profile selection during
+  consumer initialization, with a credential-free project/profile configuration
+  pair. Added central effective-policy resolution, local `make
+  profile-policy-check`, and shadow delegation to that resolver.
+  Profile values now select reusable jobs in the advisory aggregate; direct
+  baseline execution, branch protection, and production behavior remain unchanged.
+- Accepted ADR-0010 for profile-aware advisory execution through invariant
+  governance checks and one stable required-controls aggregate. The advisory
+  implementation is present; hosted activation evidence, duplicate-path
+  migration, and branch-protection enforcement remain staged follow-up work.
+- Completed hosted shadow observations for Starter and Enterprise profiles;
+  both retained all existing workflows, and their aligned/mismatch reports
+  matched the normative mapping. This completed the shadow evidence gate
+  without changing workflow execution or required checks.
+- Recorded hosted profile-shadow evidence for template compatibility mode, a
+  Standard Python consumer, and an external public fork. The fork check passed
+  with read-only contents permission and no secret source. At that observation
+  point, activation was deferred pending Starter/Enterprise and broader
+  cost/noise evidence.
+- Added the profile-shadow resolver, advisory workflow, stable
+  `Profile shadow / Profile policy observation` context, and focused contracts.
+  That observational slice did not change baseline workflow execution, required
+  checks, branch protection, or initializer behavior.
+- Recorded the hosted Standard-profile Python coverage pilot, including
+  duplicate-basename-safe 100% coverage, build artifacts, blocking security,
+  and strictly verified post-merge provenance.
+- Added a declarative maturity-profile foundation: versioned schema, safe
+  example, Starter/Standard/Enterprise control mapping, compatibility-mode
+  validator, and ADR-0008. Profile files now drive advisory aggregate job
+  selection but do not change direct baseline checks or branch protection.
+- Verified the hosted single-stack Java 21/Maven consumer path through quality,
+  tests, build artifact creation, and signed provenance attestation.
+- Added a checked-in Python consumer fixture plus a shared, tested dependency
+  bootstrap contract for PEP 621, setup.py, and requirements-based projects.
+- Added a checked-in consumer monorepo fixture and regression contract covering
+  version-2 component resolution for Go and Node.js.
+- Added framework artifact conventions for Next.js, Nuxt, and Angular,
+  including the boundary of the generic Node.js packaging workflow.
+- Added `scripts/enforce-go-coverage.sh` as the shared 80% Go coverage gate for
+  single-stack and component-aware CI, with focused contract tests.
+- Added version-2 monorepo component generation to `scripts/init-project.sh`;
+  single and undecided layouts retain the version-1 compatibility format.
+- Added an accepted component-aware monorepo CI contract based on the MangaHub
+  consumer pilot; version-2 component validation and advisory workflow support
+  are implemented without changing version-1 consumers or branch protection.
+- Added an illustrative OpenAPI `/health` contract, global bearer-auth default,
+  explicit consumer guidance, and a regression contract test.
+- Added an SPDX license-header template and coding-standards guidance for
+  consumer source files.
+- Added explicit `single`/`monorepo`/`undecided` layout selection, credential-free
+  project config validation, and fail-safe monorepo detection. Version-2
+  monorepos now use the explicit component-aware workflow contract.
+- Added a beginner-friendly getting-started guide with quick-start steps,
+  required/optional control mapping, terminology, expected results, and
+  troubleshooting; linked it from the root README and documentation index.
+- Added `scripts/init-project.sh` with explicit reconfiguration protection and
+  contract tests; it updates the marked consumer identity block and writes the
+  profile/project config consumed by the advisory aggregate, without editing
+  workflow files or branch protection.
+- Added coherent example task/system prompts, referenced JSON schemas, golden fixtures, provider-neutral evaluation config and runner contract, version-pinning and branch-protection guidance, optional PostHog observability guidance, and stack-specific cache guidance.
+- Documented optional Graphify codebase knowledge integration without changing
+  the existing Code Review Graph or Alibaba review workflows.
+- Coordinated the local graph review and optional Alibaba semantic review under a shared advisory PR-review policy and code/AI change scope.
+- Added advisory local-first `code-review-graph` PR review with fork-safe report validation and sticky comment publication.
+- Added the Phase 6 vendor-neutral production-readiness contract, read-only readiness workflow, fail-closed manual rollback skeleton, executable validation tests, and operational observability/recovery baseline. Validation is approval-neutral and always reports `production_ready=false`; platform activation remains tracked by TD-0011.
+- Phase 5 delivery pipeline: `sbom.yml` (SPDX), `artifact-attestation.yml` (same-run build provenance), `release.yml` (on `v*` tags with artifact + SBOM + digests), and `deploy-development/staging/production.yml` + `smoke-test.yml` skeletons (workflow_dispatch, OIDC-documented, production human-gated via GitHub Environment).
+- Phase 4 AI-native capability: `ai-evaluation.yml` provides a credential-free reusable deterministic `--check` path plus a separately secret-gated direct path; `open-code-review.yml` (Alibaba OCR) remains advisory and secret-gated. Both use `pull_request` (not `pull_request_target`). Plus `example-structured-extractor` prompt with JSON-schema output validation, `evals/README.md` threshold table, and cross-cutting docs.
+- Phase 3 security baseline: `secret-scan.yml` (blocking), `dependency-review.yml` (critical/high blocking), `dependency-audit.yml` (advisory, weekly), `license-check.yml` (advisory), `codeql.yml` (graceful-degrade without GHAS), `scorecard.yml` (advisory). Plus `scripts/license-check.sh` (allowlist/denylist, advisory).
+- Phase 2 code-quality baseline: `ci.yml` dispatcher + `ci-quality` / `ci-test` / `build` reusable workflows that auto-detect the consumer's stack (python/node/go/java/dotnet) and run format-check, lint, typecheck, unit/integration/e2e tests, an 80% coverage gate, and build. All jobs skip cleanly on the empty template (stack unknown).
+- `scripts/stack-tools.sh` — single-source-of-truth per-stack tool mapper.
+- `scripts/test/test-stack-detection.sh` — shell tests for the detection/mapper scripts.
+- `make test-scripts` target; Makefile + ci-local now execute real tools when a stack is present.
+- Repository foundation config: `.gitignore`, `.gitattributes`, `.editorconfig`, `.env.example`, MIT `LICENSE`, `CHANGELOG.md`, `CODE_OF_CONDUCT.md`, `CONTRIBUTING.md`, `SECURITY.md`.
+- Canonical `AGENTS.md` (24 sections, Karpathy discipline, DoR/DoD, agent workflow) + tool adapters (`CLAUDE.md`, `.github/copilot-instructions.md`, `.cursor/rules/project.mdc`, `.codex/instructions.md`).
+- Core baselines: `README.md`, `PRODUCT.md`, `DESIGN.md`, `ARCHITECTURE.md`.
+- Command interface: `Makefile` (clean no-op stubs until a stack is wired) + `scripts/{detect-stack,ci-local,setup-branch-protection}.sh`.
+- GitHub governance: `CODEOWNERS`, `dependabot.yml`, `labeler.yml`, `release.yml`, pull-request template, issue templates.
+- Phase-1 CI workflows: `pr-title`, `validate-metadata`, `docs-check`, `action-security` (least-privilege, pinned Actions) + `.markdownlint.jsonc`.
+
+### Changed
+- Recorded the five deferred Minor follow-ups for the advisory profile
+  required-controls aggregate; current behavior remains safe and advisory, and
+  the follow-ups must be resolved before audit-grade reliance or optional-run
+  activation.
+- Made Python's 80% coverage gate follow consumer-owned pytest discovery so
+  correctly classified unit, integration, contract, and end-to-end tests
+  contribute to overall coverage; category-specific executions remain visible.
+- Updated the SHA-pinned actionlint, Markdown lint, link-check, and semantic
+  PR-title Actions after their exact revisions passed in a consumer repository.
+  The build-attestation wrapper was also updated without changing its inputs;
+  real provenance execution still requires an uploaded build artifact.
+- Recorded two successful hosted-runner validations of the corrected Go/Node
+  consumer monorepo dispatcher and separated completed P0 runtime validation
+  from the remaining human-approved branch-protection migration.
+- Made the fixed 80% Go coverage threshold visible on every helper run, failed
+  closed when a detected Go component has no measurable profile, and documented
+  first-PR remediation without adding a bootstrap bypass or meaningless tests.
+- Synchronized README maturity and deployment status with the shipped Phase 1–6
+  baseline. Profile-selected advisory execution now uses a stable aggregate;
+  required-check migration and enforcement remain deferred pending hosted evidence.
+- Archived the shipped Phase 6 design and implementation plan under `docs/plans/completed/` and synchronized the roadmap status through Phase 6.
+- Documentation tree: `docs/` (product, architecture, ADRs, API, security, AI, development, operations, templates, plans) + ADR-0001.
+- AI-native scaffolding: `prompts/registry.yaml` (2 examples), `prompts/schemas/`, `evals/` framework README + subdirs, `tests/`, and consumer-owned `src/`, `infrastructure/`, `deployment/`, `observability/` with READMEs.
+
+### Fixed
+- Made profile execution-plan allowlist validation portable to Ubuntu AWK by
+  using exact POSIX shell token matching while retaining compound-value rejection.
+- Disabled persisted Git credentials on every checkout shared by the advisory
+  quality, test, monorepo, secret, dependency, and deterministic AI boundaries;
+  direct invocations of the same job bodies keep the same hardened behavior.
+- Prevented aggregate Python coverage from collecting template-owned regression
+  fixtures or colliding on same-named test modules across test categories.
+- Enforced the documented 80% .NET line-coverage baseline through a shared,
+  fail-closed current-run Cobertura aggregator and retained recursive collector
+  reports in single-stack and component-aware CI.
+- Unified root/direct-`src/` Python project resolution across dependency
+  bootstrap, build execution, and artifact packaging; non-buildable and
+  ambiguous boundaries now fail with explicit diagnostics.
+- Installed Python consumer runtime and development dependencies before local
+  setup and inherited quality, test, and build commands, replacing duplicated
+  tool-only workflow setup with a pinned fallback that respects consumer tools.
+- Isolated initializer contract tests from the repository's active `README.md`
+  by using a dedicated, deterministic fresh-template fixture, so the tests also
+  pass after a consumer has generated its own README identity.
+- Isolated reusable CI concurrency groups so called workflows cannot cancel the
+  top-level dispatcher, added SHA-pinned `golangci-lint` v2.12.2 installation,
+  and made empty optional Node.js integration/e2e categories skip explicitly
+  while preserving real Vitest failures.
+- Expanded the version-2 Go/Node consumer fixture with minimal source and unit
+  tests for local consumer contracts ahead of hosted-runner verification.
+- Aligned the getting-started and local-setup clone examples with the
+  copy-safe README owner/repository placeholders.
+- Replaced angle-bracket `git clone` and `cd` placeholders in the root README
+  with copy-safe owner/repository placeholders.
+- Pinned the scheduled Python and Go dependency-audit tooling to
+  `pip-audit` v2.10.1 and `govulncheck` v1.1.4, removing mutable `@latest`
+  installation from the advisory security workflow.
+- Upgraded the blocking dependency-review workflow from OSV-Scanner v1.9.2 to
+  v2.4.0, added SHA-256 binary verification, adopted the v2 source-scan
+  command, and made scanner errors fail closed while preserving empty-template
+  compatibility.
+- Documented the safe activation order for version-2 monorepo CI so reusable
+  workflows are present on the default branch before component checks become
+  part of a consumer PR or branch-protection policy.
+- Reduced the canonical `AGENTS.md` context load by moving the detailed coding
+  discipline and implementation workflow into linked `docs/ai/` guidance while
+  keeping the mandatory rules and workflow order explicit.
+- Fixed the component-aware dispatcher output key to use an expression-safe
+  identifier, made Node.js quality/test commands resolve local project binaries
+  with `npx --no-install`, and documented the intentional MD060 table-style
+  exemption for the existing compact template tables.
+- Fixed the graph-review report handoff by pinning the action version that exports `comment-file`; hardened the trusted `workflow_run` publisher to satisfy zizmor's permission and concurrency checks.
+- Repaired the Phase 5 build-to-release chain: same-run provenance attestation,
+  exact-commit CI artifact promotion without rebuild, fail-closed artifact
+  validation, and delivery workflow contract tests. Deploy and smoke-test
+  workflows remain skeletons.
+- Activated public-repository security enforcement: CodeQL now scans pull requests and fails closed for execution/storage errors; Scorecard uses job-scoped OIDC and fails closed for publication/SARIF errors while findings remain advisory (TD-0006 closed).
+
+### Known limitations (Phase 1)
+- Phase-1 workflows pin all third-party GitHub Actions to immutable commit SHAs (TD-0001 closed — see `docs/plans/technical-debt.md`).
+- Quality, security-scan, AI-evaluation, and deploy workflows arrive in Phases 2–6.
+- Stack is not committed; `make` targets no-op until a consumer adopts one.
